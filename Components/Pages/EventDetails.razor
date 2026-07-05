@@ -1,0 +1,59 @@
+@page "/eventdetails/{Id:int}"
+
+@using EventEaseApp.Models
+@using EventEaseApp.Services
+
+@inject EventService EventService
+
+<PageTitle>Event Details</PageTitle>
+
+@if (selectedEvent is null)
+{
+    <div class="alert alert-danger">
+        Event not found.
+    </div>
+}
+else
+{
+    <div class="card shadow">
+
+        <div class="card-body">
+
+            <h2>@selectedEvent.Name</h2>
+
+            <p>
+                <strong>Date:</strong>
+                @selectedEvent.Date.ToString("MMMM dd, yyyy")
+            </p>
+
+            <p>
+                <strong>Location:</strong>
+                @selectedEvent.Location
+            </p>
+
+            <p>
+                @selectedEvent.Description
+            </p>
+
+            <NavLink href="/registration"
+                     class="btn btn-success">
+                Register for this Event
+            </NavLink>
+
+        </div>
+
+    </div>
+}
+
+@code
+{
+    [Parameter]
+    public int Id { get; set; }
+
+    private Event? selectedEvent;
+
+    protected override void OnParametersSet()
+    {
+        selectedEvent = EventService.GetEventById(Id);
+    }
+}

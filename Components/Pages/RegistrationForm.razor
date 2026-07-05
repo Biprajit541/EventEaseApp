@@ -1,0 +1,113 @@
+@page "/register/{EventId:int}"
+@rendermode InteractiveServer
+
+@using Microsoft.AspNetCore.Components.Forms
+@using EventEaseApp.Models
+@using EventEaseApp.Services
+@using RegistrationModel = EventEaseApp.Models.Registration
+
+@inject EventService EventService
+@inject SessionService SessionService
+@inject AttendanceService AttendanceService
+@inject NavigationManager Navigation
+
+<PageTitle>Register</PageTitle>
+
+@if (selectedEvent == null)
+{
+    <div class="alert alert-danger">
+        Event not found.
+    </div>
+}
+else
+{
+    <h2>Register for</h2>
+
+    <div class="card shadow">
+
+        <div class="card-body">
+
+            <h3>@selectedEvent.Name</h3>
+
+            <p>
+                <strong>Date:</strong>
+                @selectedEvent.Date.ToString("MMMM dd, yyyy")
+            </p>
+
+            <p>
+                <strong>Location:</strong>
+                @selectedEvent.Location
+            </p>
+
+            <hr />
+
+            <EditForm Model="registration"
+                      OnValidSubmit="RegisterUser"
+                      FormName="RegistrationForm">
+
+                <DataAnnotationsValidator />
+
+                <ValidationSummary />
+
+                <div class="mb-3">
+
+                    <label>Name</label>
+
+                    <InputText class="form-control"
+                               @bind-Value="registration.Name" />
+
+                </div>
+
+                <div class="mb-3">
+
+                    <label>Email</label>
+
+                    <InputText class="form-control"
+                               @bind-Value="registration.Email" />
+
+                </div>
+
+                <button class="btn btn-primary"
+                        type="submit">
+                    Register
+                </button>
+
+                <NavLink href="/registration"
+                         class="btn btn-secondary ms-2">
+                    Back
+                </NavLink>
+
+            </EditForm>
+
+        </div>
+
+    </div>
+}
+
+@code
+{
+    [Parameter]
+    public int EventId { get; set; }
+
+    private RegistrationModel registration = new();
+
+    private Event? selectedEvent;
+
+    protected override void OnParametersSet()
+    {
+        selectedEvent = EventService.GetEventById(EventId);
+    }
+
+    private async Task RegisterUser()
+    {
+        SessionService.Login(registration.Name);
+
+        SessionService.CurrentUser.RegisteredEventId = EventId;
+
+        AttendanceService.Register(EventId);
+
+        await Task.Delay(1000);
+
+        Navigation.NavigateTo("/attendance");
+    }
+}

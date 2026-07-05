@@ -1,0 +1,53 @@
+@page "/registration"
+@rendermode InteractiveServer
+
+@using EventEaseApp.Services
+
+@inject EventService EventService
+
+<PageTitle>Event Registration</PageTitle>
+
+<h1>Event Registration</h1>
+
+<p>Select an event below to register.</p>
+
+@if (!EventService.GetEvents().Any())
+{
+    <div class="alert alert-warning">
+        No events are currently available.
+    </div>
+}
+else
+{
+    @foreach (var eventItem in EventService.GetEvents())
+    {
+        <div class="card shadow-sm mb-4">
+
+            <div class="card-body">
+
+                <h3>@eventItem.Name</h3>
+
+                <p>
+                    <strong>Date:</strong>
+                    @eventItem.Date.ToString("MMMM dd, yyyy")
+                </p>
+
+                <p>
+                    <strong>Location:</strong>
+                    @eventItem.Location
+                </p>
+
+                <p>
+                    @eventItem.Description
+                </p>
+
+                <NavLink href="@($"/register/{eventItem.Id}")"
+                         class="btn btn-success">
+                    Register
+                </NavLink>
+
+            </div>
+
+        </div>
+    }
+}

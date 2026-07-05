@@ -1,0 +1,30 @@
+@using EventEaseApp.Models
+@using Microsoft.AspNetCore.Components.Routing
+
+<div class="card shadow-sm mb-3">
+    <div class="card-body">
+
+        <h4 class="card-title">@Event.Name</h4>
+
+        <p class="card-text">
+            <strong>Date:</strong> @Event.Date.ToString("MMMM dd, yyyy")
+        </p>
+
+        <p class="card-text">
+            <strong>Location:</strong> @Event.Location
+        </p>
+
+        <NavLink href="@($"/eventdetails/{Event.Id}")"
+                 class="btn btn-primary">
+            View Details
+        </NavLink>
+
+    </div>
+</div>
+
+@code {
+
+    [Parameter]
+    public Event Event { get; set; } = default!;
+
+}

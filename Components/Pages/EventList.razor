@@ -1,0 +1,24 @@
+@page "/events"
+
+@using EventEaseApp.Models
+@using EventEaseApp.Services
+
+@inject EventService EventService
+
+<PageTitle>Events</PageTitle>
+
+<h1>Upcoming Events</h1>
+
+@if (!EventService.GetEvents().Any())
+{
+    <div class="alert alert-warning">
+        No events available.
+    </div>
+}
+else
+{
+    @foreach (var item in EventService.GetEvents())
+    {
+        <EventCard Event="item" />
+    }
+}

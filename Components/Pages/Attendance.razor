@@ -1,0 +1,80 @@
+@page "/attendance"
+@rendermode InteractiveServer
+
+@using EventEaseApp.Models
+@using EventEaseApp.Services
+
+@inject SessionService SessionService
+@inject AttendanceService AttendanceService
+@inject EventService EventService
+
+<PageTitle>Attendance</PageTitle>
+
+<h1>Attendance Tracker</h1>
+
+@if (SessionService.CurrentUser.IsLoggedIn)
+{
+    <div class="alert alert-success">
+
+        <h3>Welcome, @SessionService.CurrentUser.UserName!</h3>
+
+        <p>
+            You have successfully registered for
+            <strong>@AttendanceService.TotalRegistrations()</strong>
+            event(s).
+        </p>
+
+    </div>
+
+    @if (AttendanceService.GetRegisteredEvents().Any())
+    {
+        @foreach (var eventId in AttendanceService.GetRegisteredEvents())
+        {
+            var currentEvent = EventService.GetEventById(eventId);
+
+            if (currentEvent != null)
+            {
+                <div class="card shadow-sm mb-3">
+
+                    <div class="card-body">
+
+                        <h4>@currentEvent.Name</h4>
+
+                        <p>
+                            <strong>Date:</strong>
+                            @currentEvent.Date.ToString("MMMM dd, yyyy")
+                        </p>
+
+                        <p>
+                            <strong>Location:</strong>
+                            @currentEvent.Location
+                        </p>
+
+                        <span class="badge bg-success">
+                            Registered
+                        </span>
+
+                    </div>
+
+                </div>
+            }
+        }
+    }
+}
+else
+{
+    <div class="alert alert-warning">
+
+        <h4>No Active Registration</h4>
+
+        <p>
+            You have not registered for any event yet.
+        </p>
+
+        <NavLink href="/registration"
+                 class="btn btn-primary">
+            Register Now
+        </NavLink>
+
+    </div>
+}
