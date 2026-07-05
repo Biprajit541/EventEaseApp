@@ -2,7 +2,7 @@
  
 ---
 
-1. ## Microsoft Copilot Assistance Summary
+## Microsoft Copilot Assistance Summary
 
 ### Project Overview
 
@@ -71,7 +71,7 @@ Overall, Microsoft Copilot served as an intelligent programming assistant throug
 
 ---
 
-2. ## Project Requirements 
+## Project Requirements 
 
 ### ✅ GitHub Repository
 A GitHub repository was created for the EventEase project to manage the source code, track development progress, and maintain version control throughout the project.
