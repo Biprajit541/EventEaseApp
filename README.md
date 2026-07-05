@@ -1,12 +1,11 @@
 # EventEase
 
-## Project Overview
-
-EventEase is a Blazor web application developed for managing corporate and social events. The application allows users to browse available events, view event details, register for events, and track their registrations through an attendance tracker.
-
+## Copilot Summary and Project Requirements
+ 
 ---
+1. 
 
-## Project Requirements
+2. ## Project Requirements 
 
 ### ✅ GitHub Repository
 A GitHub repository was created for the EventEase project to manage the source code, track development progress, and maintain version control throughout the project.
@@ -24,4 +23,4 @@ The application was optimized by adding input validation using Data Annotations,
 Advanced functionality includes a Registration Form with validation, user session management using Blazor services, and an Attendance Tracker that records registered events and displays their details.
 
 ### ✅ Microsoft Copilot Assistance
-A detailed summary describing how Microsoft Copilot assisted during Activities 1, 2, and 3 is included in the **Copilot_Summary.md** file.
+A detailed summary describing how Microsoft Copilot assisted during Activities 1, 2, and 3 is already included in the **Copilot Summary**.
