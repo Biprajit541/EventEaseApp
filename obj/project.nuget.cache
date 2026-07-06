@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "poQQHrwNTFs=",
+  "success": true,
+  "projectFilePath": "C:\\Users\\bipra\\OneDrive\\Desktop\\EventEaseApp\\EventEaseApp.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\bipra\\.nuget\\packages\\microsoft.aspnetcore.app.internal.assets\\10.0.9\\microsoft.aspnetcore.app.internal.assets.10.0.9.nupkg.sha512"
+  ],
+  "logs": []
+}
