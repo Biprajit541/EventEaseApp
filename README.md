@@ -1,4 +1,8 @@
 <img width="1917" height="840" alt="image" src="https://github.com/user-attachments/assets/5f824896-3950-44cc-b8df-21013167c9cd" />
+<img width="1917" height="928" alt="image" src="https://github.com/user-attachments/assets/f4723c98-01fe-4eaf-b17d-17184a4faf34" />
+<img width="1901" height="927" alt="image" src="https://github.com/user-attachments/assets/cd7b0cef-1195-495d-8aa7-039dc4c48fef" />
+<img width="1917" height="927" alt="image" src="https://github.com/user-attachments/assets/a01bf5e4-be1a-41a0-b0ab-769865f06470" />
+<img width="1917" height="922" alt="image" src="https://github.com/user-attachments/assets/fa950b02-c182-49c5-bb18-cf2c7d8b7ca7" />
 
 
 ## Microsoft Copilot Summary and Project Requirements
