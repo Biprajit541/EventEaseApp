@@ -1,3 +1,6 @@
+<img width="1917" height="840" alt="image" src="https://github.com/user-attachments/assets/5f824896-3950-44cc-b8df-21013167c9cd" />
+
+
 ## Microsoft Copilot Summary and Project Requirements
  
 ---
